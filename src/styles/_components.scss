@@ -1,0 +1,82 @@
+@use 'variables';
+@use 'base';
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: .75;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: .1;
+  }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size, 10), variables.$cell-size);
+  gap: variables.$gap;
+  margin: 20px auto;
+  justify-content: center;
+}
+
+.cell {
+  overflow: visible;
+  position: relative;
+  width: variables.$cell-size;
+  height: variables.$cell-size;
+  background: variables.$cell-bg;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  &.player {
+    background: variables.$player;
+  }
+  &.enemy {
+    background: variables.$enemy;
+  }
+  &.signal {
+    background: variables.$signal;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: variables.$cell-size;
+      height: variables.$cell-size;
+      pointer-events: none;
+      outline: 1px inset variables.$player;
+      border-radius: 6px;
+      will-change: transform, opacity;
+      animation: pulse 1s cubic-bezier(.4, 0, .2, 1) infinite;
+    }
+  }
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  span {
+    display: inline-block;
+    padding: 0 8px;
+  }
+}
+
+.btn {
+  appearance: none;
+  display: inline-block;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: variables.$cell-bg;
+  color: variables.$text;
+  border: 1px solid variables.$button-bg;
+  cursor: pointer;
+  transition: border-color .15s linear;
+  &:hover {
+    border-color: variables.$text;
+  }
+}

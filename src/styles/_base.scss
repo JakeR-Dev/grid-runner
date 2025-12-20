@@ -1,0 +1,19 @@
+@use 'variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: variables.$bg;
+  color: variables.$text;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 12px;
+}
