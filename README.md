@@ -11,9 +11,11 @@ Built with:
 
 ## Compile assets
 
-- Be sure you're running npm 24+
+- Be sure you're running Node v24+
 - From project root, run `npm run dev`
 
 ## Deployment
 
-- From project root, run `npm run build`
+- From project root, run `npm run deploy`
+
+This builds assets and deploys them to the `gh-pages` branch. The Github Pages site is set to deploy specifically from that `gh-pages` branch.
