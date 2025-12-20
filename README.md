@@ -1,6 +1,13 @@
 # Grid Runner
 
-A React + Vite game. The Goal: collect as many 'signals' as possible without letting the enemies touch you.
+Play the game at: https://jaker-dev.github.io/grid-runner/
+
+The Goal: collect as many 'signals' as possible without letting the enemies touch you.
+
+Built with:
+- React
+- Vite
+- SCSS
 
 ## Compile assets
 
