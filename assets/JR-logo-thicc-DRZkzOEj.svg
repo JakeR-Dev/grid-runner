@@ -1,0 +1,21 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Circle Border -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#f4f4f6" stroke-width="10"/>
+
+  <!-- J -->
+  <path d="M60 40 H80 V115 
+           C80 135 70 145 55 145 
+           H45 V130 H55 
+           C63 130 65 123 65 115 
+           V40 Z"
+        fill="#ffffff"/>
+
+  <!-- R -->
+  <path d="M100 40 H140 
+           C153 40 160 50 160 65 
+           C160 80 153 90 140 90 
+           H120 V40 Z
+           
+           M120 90 L140 145 H120 L105 90 Z"
+        fill="#ffffff"/>
+</svg>
