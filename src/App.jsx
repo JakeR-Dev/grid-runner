@@ -22,24 +22,26 @@ function App() {
   ])
   const [status, setStatus] = useState('Playing')
   const [score, setScore] = useState(0)
+  const [gridSize, setGridSize] = useState(10)
+  const [opacity, setOpacity] = useState('1')
 
   // Player movement
-  usePlayerMovement(status, setPlayer)
+  usePlayerMovement(status, gridSize,setPlayer)
 
   // Enemy movement loop
-  useEnemyMovement(status, setEnemies)
+  useEnemyMovement(status, gridSize, setEnemies)
 
   // Collision detection
-  useCollisions({player, enemies, signals, setSignals, setStatus, setScore})
+  useCollisions({player, enemies, signals, setSignals, setStatus, setScore, setOpacity})
 
   // Difficulty increase
-  useDifficultyIncrease(status, player, enemies, setEnemies, setSignals, setPlayer, setStatus)
+  useDifficultyIncrease({status, player, enemies, gridSize, setEnemies, setSignals, setPlayer, setStatus, setGridSize})
 
   return (
     <div className="app">
       <h1>Grid Runner</h1>
       <HUD score={score} status={status} />
-      <GameBoard player={player} enemies={enemies} signals={signals} />
+      <GameBoard player={player} enemies={enemies} signals={signals} opacity={opacity} gridSize={gridSize} />
       <div className="user-info">
         <User name="Gridzilla" />
         <HighScore score={score} />

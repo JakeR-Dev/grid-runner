@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
-import { isSamePosition, setGapSize, setOpacity } from '../utils/gameLogic'
+import { isSamePosition } from '../utils/gameLogic'
 
-export function useCollisions({player, enemies, signals, setSignals, setStatus, setScore}) {
+export function useCollisions({player, enemies, signals, setSignals, setStatus, setScore, setOpacity}) {
   useEffect(() => {
     if (enemies.some(e => isSamePosition(e, player))) {
       setStatus('Game Over')
-      setGapSize('40')
       setOpacity('0.2')
     }
 

@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { clamp, isSamePosition, GRID_SIZE, setGridSize } from '../utils/gameLogic'
+import { clamp, isSamePosition } from '../utils/gameLogic'
 
-export function useDifficultyIncrease(status, player, enemies, setEnemies, setSignals, setPlayer, setStatus) {
+export function useDifficultyIncrease({status, player, enemies, gridSize, setEnemies, setSignals, setPlayer, setStatus, setGridSize}) {
   useEffect(() => {
     if (status !== 'You Win!') return
 
-    const newSize = Math.max(6, GRID_SIZE - 1)
-
+    const newSize = Math.max(6, gridSize - 1)
     function randomPos(existing = []) {
       let tries = 0
       while (tries < 100) {
@@ -27,7 +26,7 @@ export function useDifficultyIncrease(status, player, enemies, setEnemies, setSi
     setEnemies(prev => {
       const existing = [...prev]
       const enemy = randomPos(existing.concat(player))
-      return [...prev, enemy].map(e => ({ x: clamp(e.x), y: clamp(e.y) }))
+      return [...prev, enemy].map(e => ({ x: clamp(e.x, gridSize), y: clamp(e.y, gridSize) }))
     })
 
     // Respawn signals for next round (2 signals)
@@ -36,12 +35,12 @@ export function useDifficultyIncrease(status, player, enemies, setEnemies, setSi
       const s1 = randomPos(existing.concat(player, ...enemies))
       existing.push(s1)
       const s2 = randomPos(existing.concat(player, ...enemies))
-      return [s1, s2].map(s => ({ x: clamp(s.x), y: clamp(s.y) }))
+      return [s1, s2].map(s => ({ x: clamp(s.x, gridSize), y: clamp(s.y, gridSize) }))
     })
 
     // Clamp player and enemies to new grid bounds
-    setPlayer(p => ({ x: clamp(p.x), y: clamp(p.y) }))
-    setEnemies(prev => prev.map(e => ({ x: clamp(e.x), y: clamp(e.y) })))
+    setPlayer(p => ({ x: clamp(p.x, gridSize), y: clamp(p.y, gridSize) }))
+    setEnemies(prev => prev.map(e => ({ x: clamp(e.x, gridSize), y: clamp(e.y, gridSize) })))
 
     // Resume playing
     setStatus('Playing')

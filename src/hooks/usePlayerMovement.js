@@ -2,13 +2,13 @@ import { useCallback } from 'react'
 import { useKeyboard } from './useKeyboard'
 import { clamp } from '../utils/gameLogic'
 
-export function usePlayerMovement(status, setPlayer) {
+export function usePlayerMovement(status, gridSize, setPlayer) {
   const movePlayer = (dx, dy) => {
     if (status !== 'Playing') return
 
     setPlayer(prev => ({
-      x: clamp(prev.x + dx),
-      y: clamp(prev.y + dy)
+      x: clamp(prev.x + dx, gridSize),
+      y: clamp(prev.y + dy, gridSize)
     }))
   }
 

@@ -6,9 +6,8 @@ $enemy: #ff9c7e;
 $signal: #00ddff;
 $text: #f4f4f6;
 
-$cell-size: 44px;
-
 :root {
+  --cell-size: 44px;
   --gap-size: 6px;
   --opacity: 1;
 }

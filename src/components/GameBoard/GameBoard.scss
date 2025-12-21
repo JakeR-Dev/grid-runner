@@ -2,12 +2,10 @@
 
 .board {
   display: grid;
-  grid-template-columns: repeat(var(--grid-size, 10), variables.$cell-size);
+  grid-template-columns: repeat(var(--grid-size, 10), var(--cell-size));
   margin: 20px auto;
   justify-content: center;
   gap: var(--gap-size);
-  width: 495px;
-  height: 495px;
   overflow: hidden;
   opacity: var(--opacity);
   transition: all 1s ease-out;
