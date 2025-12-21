@@ -1,0 +1,10 @@
+.hud {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  span {
+    display: inline-block;
+    padding: 0 8px;
+  }
+}

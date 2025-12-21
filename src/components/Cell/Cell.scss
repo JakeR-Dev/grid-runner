@@ -1,0 +1,33 @@
+@use '/src/styles/variables';
+
+.cell {
+  overflow: visible;
+  position: relative;
+  width: variables.$cell-size;
+  height: variables.$cell-size;
+  background: variables.$cell-bg;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  &.player {
+    background: variables.$player;
+  }
+  &.enemy {
+    background: variables.$enemy;
+  }
+  &.signal {
+    background: variables.$signal;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: variables.$cell-size;
+      height: variables.$cell-size;
+      pointer-events: none;
+      outline: 1px inset variables.$player;
+      border-radius: 6px;
+      will-change: transform, opacity;
+      animation: pulse 1s cubic-bezier(.4, 0, .2, 1) infinite;
+    }
+  }
+}

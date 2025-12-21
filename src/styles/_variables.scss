@@ -7,4 +7,8 @@ $signal: #00ddff;
 $text: #f4f4f6;
 
 $cell-size: 44px;
-$gap: 6px;
+
+:root {
+  --gap-size: 6px;
+  --opacity: 1;
+}

@@ -1,7 +1,22 @@
 @use 'variables';
 
+@keyframes pulse {
+  from {
+    transform: scale(1);
+    opacity: .75;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: .1;
+  }
+}
+
 * {
   box-sizing: border-box;
+}
+
+.app {
+  text-align: center;
 }
 
 body {
@@ -16,4 +31,40 @@ body {
 
 h1 {
   margin-bottom: 12px;
+}
+
+button {
+  &.btn {
+    appearance: none;
+    display: inline-block;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    background: variables.$cell-bg;
+    color: variables.$text;
+    border: 1px solid variables.$button-bg;
+    cursor: pointer;
+    transition: border-color .15s linear;
+    &:hover {
+      border-color: variables.$text;
+    }
+  }
+  &.inline {
+    appearance: none;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    color: variables.$text;
+    cursor: pointer;
+  }
+}
+
+input {
+  background: variables.$button-bg;
+  color: variables.$text;
+  border: 1px solid variables.$button-bg;
+  padding: 4px;
+  margin-right: 4px;
 }
