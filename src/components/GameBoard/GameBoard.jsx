@@ -2,12 +2,13 @@ import Cell from '../Cell/Cell'
 import { isSamePosition } from '../../utils/gameLogic'
 import './GameBoard.scss'
 
-export default function GameBoard({ player, enemies, signals, opacity, gridSize }) {
+export default function GameBoard({ player, enemies, signals, opacity, gridSize, status }) {
   const cells = [];
   const style = {
     '--grid-size': String(gridSize),
     '--opacity': opacity
   };
+  let gameOverMessage = null;
 
   for (let y = 0; y < gridSize; y++) {
     for (let x = 0; x < gridSize; x++) {
@@ -25,7 +26,14 @@ export default function GameBoard({ player, enemies, signals, opacity, gridSize 
     }
   }
 
+  if (status === 'Game Over') {
+    gameOverMessage = <h2 className="game-over">Game Over</h2>;
+  }
+
   return (
-    <div className="board" style={style}>{cells}</div>
+    <div className="board-wrapper">
+      <div className="board" style={style}>{cells}</div>
+      {gameOverMessage}
+    </div>
   )
 }

@@ -3,11 +3,10 @@ import { usePlayerMovement } from './hooks/usePlayerMovement'
 import { useEnemyMovement } from './hooks/useEnemyMovement'
 import { useCollisions } from './hooks/useCollisions'
 import { useDifficultyIncrease } from './hooks/useDifficultyIncrease'
+import Intro from './components/Intro/Intro'
 import GameBoard from './components/GameBoard/GameBoard'
 import HUD from './components/HUD/HUD'
 import Restart from './components/Restart/Restart'
-import User from './components/User/User'
-import HighScore from './components/HighScore/HighScore'
 import './styles/main.scss'
 
 function App() {
@@ -26,26 +25,22 @@ function App() {
   const [opacity, setOpacity] = useState('1')
 
   // Player movement
-  usePlayerMovement(status, gridSize,setPlayer)
+  usePlayerMovement(status, gridSize, setPlayer)
 
   // Enemy movement loop
   useEnemyMovement(status, gridSize, setEnemies)
 
   // Collision detection
-  useCollisions({player, enemies, signals, setSignals, setStatus, setScore, setOpacity})
+  useCollisions({ player, enemies, signals, setSignals, setStatus, setScore, setOpacity })
 
   // Difficulty increase
-  useDifficultyIncrease({status, player, enemies, gridSize, setEnemies, setSignals, setPlayer, setStatus, setGridSize})
+  useDifficultyIncrease({ status, player, enemies, gridSize, setEnemies, setSignals, setPlayer, setStatus, setGridSize })
 
   return (
     <div className="app">
-      <h1>Grid Runner</h1>
+      <Intro></Intro>
       <HUD score={score} status={status} />
-      <GameBoard player={player} enemies={enemies} signals={signals} opacity={opacity} gridSize={gridSize} />
-      <div className="user-info">
-        <User name="Gridzilla" />
-        <HighScore score={score} />
-      </div>
+      <GameBoard player={player} enemies={enemies} signals={signals} opacity={opacity} gridSize={gridSize} status={status} />
       <Restart />
     </div>
   )

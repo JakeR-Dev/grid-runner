@@ -5,7 +5,7 @@ export function useCollisions({player, enemies, signals, setSignals, setStatus, 
   useEffect(() => {
     if (enemies.some(e => isSamePosition(e, player))) {
       setStatus('Game Over')
-      setOpacity('0.2')
+      setOpacity('0.3')
     }
 
     const collected = signals.find(s => isSamePosition(s, player))

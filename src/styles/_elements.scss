@@ -1,0 +1,43 @@
+@use 'variables';
+
+button {
+  font: {
+    family: "Press Start 2P", system-ui, sans-serif;
+    size: 8px;
+    weight: 400;
+    style: normal;
+  }
+  &.btn {
+    appearance: none;
+    display: inline-block;
+    padding: 9px 10px 7px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    background: variables.$cell-bg;
+    color: variables.$text;
+    border: 1px solid variables.$button-bg;
+    cursor: pointer;
+    transition: border-color .15s linear;
+    &:hover {
+      border-color: variables.$text;
+    }
+  }
+  &.inline {
+    opacity: 0.6;
+    appearance: none;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    color: variables.$text;
+    cursor: pointer;
+  }
+}
+
+input {
+  background: variables.$button-bg;
+  color: variables.$text;
+  border: 1px solid variables.$button-bg;
+  padding: 4px;
+  margin-right: 4px;
+  max-width: 125px;
+}
