@@ -39,8 +39,8 @@ function App() {
   return (
     <div className="app">
       <Intro></Intro>
-      <HUD score={score} status={status} />
       <GameBoard player={player} enemies={enemies} signals={signals} opacity={opacity} gridSize={gridSize} status={status} />
+      <HUD score={score} status={status} />
       <Restart />
     </div>
   )
