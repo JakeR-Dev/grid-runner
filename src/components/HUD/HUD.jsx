@@ -3,9 +3,7 @@ import './HUD.scss';
 
 export default function HUD({ score, status, name: initialName }) {
   const [highScore, setHighScore] = useState(localStorage.getItem('highScore') || 0);
-  const [name, setName] = useState(() => {
-    return localStorage.getItem('name') ?? initialName;
-  });
+  const [name, setName] = useState(localStorage.getItem('name') || initialName);
   const [isEditing, setIsEditing] = useState(false);
 
   // reset high score

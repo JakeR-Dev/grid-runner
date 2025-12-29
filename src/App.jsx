@@ -40,7 +40,7 @@ function App() {
     <div className="app">
       <Intro></Intro>
       <GameBoard player={player} enemies={enemies} signals={signals} opacity={opacity} gridSize={gridSize} status={status} />
-      <HUD score={score} status={status} />
+      <HUD score={score} status={status} name="Gridzilla" />
       <Restart />
     </div>
   )
